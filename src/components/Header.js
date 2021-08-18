@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+
+
 const Header = ({ title }) => {
   return (
     <div>
@@ -10,6 +13,10 @@ const Header = ({ title }) => {
 
 Header.defaultProps = {
   title: 'Task Tracker'
+}
+
+Header.propTypes = {
+  title: PropTypes.string
 }
 
 export default Header

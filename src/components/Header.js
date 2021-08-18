@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-
 const Header = ({ title }) => {
   return (
     <div>
@@ -18,5 +17,10 @@ Header.defaultProps = {
 Header.propTypes = {
   title: PropTypes.string
 }
+
+// const headingStyle = {
+//   color: 'red',
+//   backgroundColor: 'black'
+// }
 
 export default Header

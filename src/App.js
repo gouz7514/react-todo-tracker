@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import axios from 'axios'
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -19,8 +20,8 @@ const App = () => {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
-    const data = await res.json()
+    const data = await axios.get('http://localhost:5000/tasks')
+                      .then(res => res.data)
 
     return data
   }
@@ -35,6 +36,8 @@ const App = () => {
 
   // Delete Task
   const deleteTask = (id) => {
+    
+
     setTasks(tasks.filter((task) => task.id !== id))
   }
 

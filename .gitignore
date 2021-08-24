@@ -11,6 +11,9 @@
 # production
 /build
 
+# custom json
+db.json
+
 # misc
 .DS_Store
 .env.local

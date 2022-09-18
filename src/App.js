@@ -24,14 +24,14 @@ const App = () => {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const data = await axios.get('http://localhost:5000/tasks')
+    const data = await axios.get('http://localhost:4000/tasks')
                       .then(res => res.data)
 
     return data
   }
 
   const fetchTask = async (id) => {
-    const data = await axios.get(`http://localhost:5000/tasks/${id}`)
+    const data = await axios.get(`http://localhost:4000/tasks/${id}`)
                       .then(res => res.data)
 
     return data
@@ -44,7 +44,7 @@ const App = () => {
     // setTasks([...tasks, newTask])
 
     // axios
-    const data = await axios.post('http://localhost:5000/tasks', {
+    const data = await axios.post('http://localhost:4000/tasks', {
       'id': id,
       ...task
     })
@@ -52,7 +52,7 @@ const App = () => {
     setTasks([...tasks, data.data])
 
     // fetch
-    // const res = await fetch('http://localhost:5000/tasks', {
+    // const res = await fetch('http://localhost:4000/tasks', {
     //   method: 'POST',
     //   headers: {
     //     'Content-type': 'application/json'
@@ -66,7 +66,7 @@ const App = () => {
 
   // Delete Task
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/tasks/${id}`)
+    await axios.delete(`http://localhost:4000/tasks/${id}`)
 
     setTasks(tasks.filter((task) => task.id !== id))
   }
@@ -77,12 +77,12 @@ const App = () => {
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
 
     // axios
-    const data = await axios.put(`http://localhost:5000/tasks/${id}`, {
+    const data = await axios.put(`http://localhost:4000/tasks/${id}`, {
       ...updTask
     }).then(res => res.data)
 
     // fetch
-    // const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    // const res = await fetch(`http://localhost:4000/tasks/${id}`, {
     //   method: 'PUT',
     //   headers: {
     //     'Content-type': 'application/json'
